@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+  <session-factory>
+    <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+    <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+    <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/shopping_mall?zeroDateTimeBehavior=convertToNull</property>
+    <property name="hibernate.connection.username">root</property>
+    <property name="hibernate.connection.password">1234</property>
+    <mapping resource="DB/Paymanetmethod.hbm.xml"/>
+    <mapping resource="DB/UserLogin.hbm.xml"/>
+    <mapping resource="DB/EmailConfirmation.hbm.xml"/>
+    <mapping resource="DB/LoginSession.hbm.xml"/>
+    <mapping resource="DB/Chat.hbm.xml"/>
+    <mapping resource="DB/District.hbm.xml"/>
+    <mapping resource="DB/StockHasInvoice.hbm.xml"/>
+    <mapping resource="DB/Ownership.hbm.xml"/>
+    <mapping resource="DB/ShopType.hbm.xml"/>
+    <mapping resource="DB/UserRoleHasUseCase.hbm.xml"/>
+    <mapping resource="DB/Orders.hbm.xml"/>
+    <mapping resource="DB/Wishlist.hbm.xml"/>
+    <mapping resource="DB/WishlistItems.hbm.xml"/>
+    <mapping resource="DB/Province.hbm.xml"/>
+    <mapping resource="DB/Bidding.hbm.xml"/>
+    <mapping resource="DB/Stock.hbm.xml"/>
+    <mapping resource="DB/Subcription.hbm.xml"/>
+    <mapping resource="DB/ShopsHasStock.hbm.xml"/>
+    <mapping resource="DB/PostalCode.hbm.xml"/>
+    <mapping resource="DB/Address.hbm.xml"/>
+    <mapping resource="DB/FronAdImages.hbm.xml"/>
+    <mapping resource="DB/Catogaries.hbm.xml"/>
+    <mapping resource="DB/CartItems.hbm.xml"/>
+    <mapping resource="DB/City.hbm.xml"/>
+    <mapping resource="DB/Privilages.hbm.xml"/>
+    <mapping resource="DB/Invoice.hbm.xml"/>
+    <mapping resource="DB/UserRole.hbm.xml"/>
+    <mapping resource="DB/UseCase.hbm.xml"/>
+    <mapping resource="DB/OrdersHasStock.hbm.xml"/>
+    <mapping resource="DB/Shops.hbm.xml"/>
+    <mapping resource="DB/SubCatogary.hbm.xml"/>
+    <mapping resource="DB/User.hbm.xml"/>
+    <mapping resource="DB/SessionActivity.hbm.xml"/>
+    <mapping resource="DB/Cart.hbm.xml"/>
+    <mapping resource="DB/Interfaces.hbm.xml"/>
+    <mapping resource="DB/SubcriptionHasStock.hbm.xml"/>
+  </session-factory>
+</hibernate-configuration>

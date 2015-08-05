@@ -1,0 +1,81 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Feb 15, 2015 2:38:15 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="DB.Stock" table="stock" catalog="shopping_mall" optimistic-lock="version">
+        <id name="idstock" type="java.lang.Integer">
+            <column name="idstock" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="catogaries" class="DB.Catogaries" fetch="select">
+            <column name="catogaries_idcatogaries" not-null="true" />
+        </many-to-one>
+        <many-to-one name="subCatogary" class="DB.SubCatogary" fetch="select">
+            <column name="Sub_catogary_idSub_catogary" not-null="true" />
+        </many-to-one>
+        <property name="qty" type="java.lang.Integer">
+            <column name="qty" />
+        </property>
+        <property name="sellingPrice" type="java.lang.Double">
+            <column name="selling_price" precision="22" scale="0" />
+        </property>
+        <property name="discountPrice" type="java.lang.Double">
+            <column name="discount_price" precision="22" scale="0" />
+        </property>
+        <property name="date" type="date">
+            <column name="date" length="10" />
+        </property>
+        <property name="productName" type="string">
+            <column name="product_name" />
+        </property>
+        <property name="productCode" type="string">
+            <column name="product_code" />
+        </property>
+        <property name="image" type="string">
+            <column name="image" />
+        </property>
+        <property name="description" type="string">
+            <column name="description" length="65535" />
+        </property>
+        <property name="status" type="java.lang.Integer">
+            <column name="status" />
+        </property>
+        <set name="cartItemses" table="cart_items" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="stock_idstock" not-null="true" />
+            </key>
+            <one-to-many class="DB.CartItems" />
+        </set>
+        <set name="ordersHasStocks" table="orders_has_stock" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="stock_idstock" not-null="true" />
+            </key>
+            <one-to-many class="DB.OrdersHasStock" />
+        </set>
+        <set name="subcriptionHasStocks" table="subcription_has_stock" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="stock_idstock" not-null="true" />
+            </key>
+            <one-to-many class="DB.SubcriptionHasStock" />
+        </set>
+        <set name="wishlistItemses" table="wishlist_items" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="stock_idstock" not-null="true" />
+            </key>
+            <one-to-many class="DB.WishlistItems" />
+        </set>
+        <set name="stockHasInvoices" table="stock_has_invoice" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="stock_idstock" not-null="true" />
+            </key>
+            <one-to-many class="DB.StockHasInvoice" />
+        </set>
+        <set name="shopsHasStocks" table="shops_has_stock" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="stock_idstock" not-null="true" />
+            </key>
+            <one-to-many class="DB.ShopsHasStock" />
+        </set>
+    </class>
+</hibernate-mapping>

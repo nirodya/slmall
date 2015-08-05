@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Feb 15, 2015 2:38:15 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="DB.Catogaries" table="catogaries" catalog="shopping_mall" optimistic-lock="version">
+        <id name="idcatogaries" type="java.lang.Integer">
+            <column name="idcatogaries" />
+            <generator class="identity" />
+        </id>
+        <property name="catogariName" type="string">
+            <column name="catogari_name" />
+        </property>
+        <set name="stocks" table="stock" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="catogaries_idcatogaries" not-null="true" />
+            </key>
+            <one-to-many class="DB.Stock" />
+        </set>
+        <set name="subCatogaries" table="sub_catogary" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="catogaries_idcatogaries" not-null="true" />
+            </key>
+            <one-to-many class="DB.SubCatogary" />
+        </set>
+    </class>
+</hibernate-mapping>

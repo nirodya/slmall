@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Feb 15, 2015 2:38:15 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="DB.SessionActivity" table="session_activity" catalog="shopping_mall" optimistic-lock="version">
+        <id name="idsessionActivity" type="java.lang.Integer">
+            <column name="idsession_activity" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="loginSession" class="DB.LoginSession" fetch="select">
+            <column name="login_session_idlogin_session" not-null="true" />
+        </many-to-one>
+        <property name="sessionActivityDescription" type="string">
+            <column name="session_activity_description" />
+        </property>
+    </class>
+</hibernate-mapping>

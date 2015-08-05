@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd">
+<hibernate-reverse-engineering>
+  <schema-selection match-catalog="shopping_mall"/>
+  <table-filter match-name="user_role"/>
+  <table-filter match-name="chat"/>
+  <table-filter match-name="user_role_has_use_case"/>
+  <table-filter match-name="district"/>
+  <table-filter match-name="session_activity"/>
+  <table-filter match-name="city"/>
+  <table-filter match-name="privilages"/>
+  <table-filter match-name="paymanetmethod"/>
+  <table-filter match-name="shop_type"/>
+  <table-filter match-name="wishlist"/>
+  <table-filter match-name="login_session"/>
+  <table-filter match-name="email_confirmation"/>
+  <table-filter match-name="address"/>
+  <table-filter match-name="orders_has_stock"/>
+  <table-filter match-name="user"/>
+  <table-filter match-name="stock_has_invoice"/>
+  <table-filter match-name="user_login"/>
+  <table-filter match-name="shops"/>
+  <table-filter match-name="province"/>
+  <table-filter match-name="interfaces"/>
+  <table-filter match-name="use_case"/>
+  <table-filter match-name="wishlist_items"/>
+  <table-filter match-name="bidding"/>
+  <table-filter match-name="stock"/>
+  <table-filter match-name="catogaries"/>
+  <table-filter match-name="shops_has_stock"/>
+  <table-filter match-name="orders"/>
+  <table-filter match-name="invoice"/>
+  <table-filter match-name="cart"/>
+  <table-filter match-name="fron_ad_images"/>
+  <table-filter match-name="postal_code"/>
+  <table-filter match-name="subcription_has_stock"/>
+  <table-filter match-name="subcription"/>
+  <table-filter match-name="cart_items"/>
+  <table-filter match-name="ownership"/>
+  <table-filter match-name="sub_catogary"/>
+</hibernate-reverse-engineering>

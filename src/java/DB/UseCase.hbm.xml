@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Feb 15, 2015 2:38:15 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="DB.UseCase" table="use_case" catalog="shopping_mall" optimistic-lock="version">
+        <id name="iduseCase" type="java.lang.Integer">
+            <column name="iduse_case" />
+            <generator class="identity" />
+        </id>
+        <property name="usecaseName" type="string">
+            <column name="usecase_name" />
+        </property>
+        <set name="userRoleHasUseCases" table="user_role_has_use_case" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="use_case_iduse_case" not-null="true" />
+            </key>
+            <one-to-many class="DB.UserRoleHasUseCase" />
+        </set>
+        <set name="privilageses" table="privilages" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="use_case_iduse_case" not-null="true" />
+            </key>
+            <one-to-many class="DB.Privilages" />
+        </set>
+    </class>
+</hibernate-mapping>

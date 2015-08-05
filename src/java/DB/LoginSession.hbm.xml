@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Feb 15, 2015 2:38:15 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="DB.LoginSession" table="login_session" catalog="shopping_mall" optimistic-lock="version">
+        <id name="idloginSession" type="java.lang.Integer">
+            <column name="idlogin_session" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="userLogin" class="DB.UserLogin" fetch="select">
+            <column name="user_login_iduser_login" not-null="true" />
+        </many-to-one>
+        <property name="loginSessionintime" type="timestamp">
+            <column name="login_sessionintime" length="19" />
+        </property>
+        <property name="loginSessionouttime" type="timestamp">
+            <column name="login_sessionouttime" length="19" />
+        </property>
+        <property name="ipAddress" type="string">
+            <column name="ip_address" />
+        </property>
+        <set name="sessionActivities" table="session_activity" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="login_session_idlogin_session" not-null="true" />
+            </key>
+            <one-to-many class="DB.SessionActivity" />
+        </set>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,67 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Oct 30, 2014, 11:03:27 AM
+    Author     : Nirodya
+*/
+.productdiv{
+    display: inline-block;
+    margin: 2%;
+    //float: left;
+    width: 25%;
+    /* height: auto; */
+    
+}
+.productimage{
+    
+/*    width: 100%;
+    height: 80%;*/
+ 
+    
+}
+.pname{
+    margin-left: auto;
+    margin-right: auto;
+}
+.pname a{
+    text-decoration: none;
+}
+.textdiv{
+    
+    z-index: 998;
+    width: 100%;
+    
+    height: 5%;
+    background: rgba(255, 255, 255, 0.8);
+}
+#pimg{
+    float: left;
+}
+#searchdiv{
+    margin-top: 100px;
+    float: left;
+    position: absolute;
+    width: 12%;
+    margin-left: 0px;
+}
+.searchCatogary{
+    text-decoration: none!important;
+    color: #000;
+    
+}
+.searchCatogary :hover{
+    text-decoration: none;
+    color: #000;
+}
+.searchCatogary :active{
+    text-decoration: none;
+    color: #000;
+}
+.searchCatogary :visited{
+    text-decoration: none;
+    color: #000;
+}
+

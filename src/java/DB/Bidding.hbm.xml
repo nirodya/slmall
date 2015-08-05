@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Feb 15, 2015 2:38:15 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="DB.Bidding" table="bidding" catalog="shopping_mall" optimistic-lock="version">
+        <id name="idbidding" type="java.lang.Integer">
+            <column name="idbidding" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="user" class="DB.User" fetch="select">
+            <column name="user_iduser" not-null="true" />
+        </many-to-one>
+        <property name="bidDate" type="date">
+            <column name="bid_date" length="10" />
+        </property>
+        <property name="bidForDate" type="date">
+            <column name="bid_for_date" length="10" />
+        </property>
+        <property name="winingValue" type="java.lang.Double">
+            <column name="wining_value" precision="22" scale="0" />
+        </property>
+        <set name="fronAdImageses" table="fron_ad_images" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="bidding_idbidding" not-null="true" />
+            </key>
+            <one-to-many class="DB.FronAdImages" />
+        </set>
+    </class>
+</hibernate-mapping>

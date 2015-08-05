@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Feb 15, 2015 2:38:15 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="DB.Shops" table="shops" catalog="shopping_mall" optimistic-lock="version">
+        <id name="idShops" type="java.lang.Integer">
+            <column name="idShops" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="shopType" class="DB.ShopType" fetch="select">
+            <column name="shop_type_idshop_type" not-null="true" />
+        </many-to-one>
+        <property name="sname" type="string">
+            <column name="sname" />
+        </property>
+        <property name="saddress" type="string">
+            <column name="saddress" length="65535" />
+        </property>
+        <property name="status" type="java.lang.Integer">
+            <column name="status" />
+        </property>
+        <set name="subcriptions" table="subcription" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="Shops_idShops" not-null="true" />
+            </key>
+            <one-to-many class="DB.Subcription" />
+        </set>
+        <set name="ownerships" table="ownership" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="Shops_idShops" not-null="true" />
+            </key>
+            <one-to-many class="DB.Ownership" />
+        </set>
+        <set name="shopsHasStocks" table="shops_has_stock" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="Shops_idShops" not-null="true" />
+            </key>
+            <one-to-many class="DB.ShopsHasStock" />
+        </set>
+        <set name="orderses" table="orders" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="shops_idShops" not-null="true" />
+            </key>
+            <one-to-many class="DB.Orders" />
+        </set>
+    </class>
+</hibernate-mapping>

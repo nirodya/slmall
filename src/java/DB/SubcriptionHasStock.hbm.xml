@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Feb 15, 2015 2:38:15 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="DB.SubcriptionHasStock" table="subcription_has_stock" catalog="shopping_mall" optimistic-lock="version">
+        <id name="subcriptionHasStockid" type="java.lang.Integer">
+            <column name="subcription_has_stockid" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="stock" class="DB.Stock" fetch="select">
+            <column name="stock_idstock" not-null="true" />
+        </many-to-one>
+        <many-to-one name="subcription" class="DB.Subcription" fetch="select">
+            <column name="subcription_subs_id" not-null="true" />
+        </many-to-one>
+        <property name="userStatus" type="int">
+            <column name="user_status" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

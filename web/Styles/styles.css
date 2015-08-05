@@ -1,0 +1,258 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Apr 6, 2014, 6:04:31 PM
+    Author     : Nirodya Gamage
+*/
+/*@font-face {
+  font-family: "Segoe UI Light";
+ src: local("Segoe UI Light");
+ src:url(../fonts/segoeuil.ttf);
+ src:url(../fonts/SEGOEUIL.woff) format("woff");
+ src:url(../fonts/SEGOEUIL.eot);
+}*/
+* {
+    margin: 0px;
+    padding: 0px;
+}
+body,html{
+    /*    font-family: "wf_SegoeUILight","wf_SegoeUI","Segoe UI Light","Segoe WP Light","Segoe UI","Segoe","Segoe WP","Tahoma","Verdana","Arial","sans-serif";
+        font-weight: lighter;*/
+    
+    margin:0;
+    padding:0;
+    height:100%;
+    font-family: 'Lato', sans-serif;
+}
+
+#menu{
+    margin-top: 0px;
+    float: right;
+    list-style: none;
+    text-decoration: none;
+    width: 50%;
+    margin: auto;
+    //height: 100%;
+    //overflow:visible!important;
+}
+.menu_item{
+    // width: 20%;
+    height: inherit;
+    display: block;
+    padding: 2%;
+    float: right;
+    font-size: x-large;
+
+}
+.menu_link{
+    text-decoration: none;
+    transition: padding 2s, transform 2s,background-color 3s;
+    -webkit-transition: padding 2s, -webkit-transform 2s,background-color 3s,scale 2s;
+
+}
+.menu_link :hover{
+    /*    border-right:1px solid black; */
+
+    /*    transition: padding 1s, transform 1s,background-color 1s;
+        -webkit-transition: padding 1s, -webkit-transform 1s,background-color 1s;
+    
+        
+        background-color: #FF3399;
+        -webkit-transform: scale(1.1,1.1);
+        transform: scale(1.1,1.1);*/
+}
+.menu_link:link{
+    text-decoration: none;
+}
+.menu_link:visited{
+    text-decoration: none;
+}
+#menu_brandname{
+    /*     transition: transform 1s;
+        -webkit-transition: -webkit-transform 1s;*/
+    background-color: #81e147;
+}
+#menubrandname:hover{
+    transition: transform 2s, background-color 1s; ;
+    -webkit-transition: -webkit-transform 2s,background-color 1s;
+
+    transform: rotateY(360deg);
+    -webkit-transform: rotateY(360deg);
+
+}
+#menudiv{
+    font-family: 'Lato', sans-serif;
+    top: 0px;
+    margin-top: 0px;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    -moz-border-radius-bottomleft: 15px;
+    -moz-border-radius-bottomright: 15px;
+    -webkit-border-bottom-left-radius: 15px;
+    -webkit-border-bottom-right-radius: 15px;
+
+    -webkit-box-shadow: 0px 0px 5px 0px rgba(51, 50, 50, 1);
+    -moz-box-shadow:    0px 0px 5px 0px rgba(51, 50, 50, 1);
+    box-shadow:         0px 0px 5px 0px rgba(51, 50, 50, 1);
+    //float: right;
+
+    //width: 100%;
+    /*    border-bottom:thin;
+    border-bottom-color:#000;*/
+    background-color:#FFFFFF;
+    background-attachment: scroll;
+    z-index: 100;
+
+    position:fixed !important;
+
+    //position: absolute; 
+
+    left: 0px;
+    right: 0px;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.8);
+}
+#menu_upper_div{
+    background-color:#FFFFFF;
+    background-attachment: scroll;
+
+    top: 0px;
+    margin-top: 0px;
+
+
+    top: 0px;
+    // margin-top: 0px;
+    margin-left: 0px; 
+    margin-right: 0px;
+    height: 20px;
+    z-index: 990;
+    position: relative; 
+    -webkit-box-shadow: 1px 3px 4px 0 rgba(0,0,0,0.15);
+    -moz-box-shadow: 1px 3px 4px 0 rgba(0,0,0,0.15);
+    box-shadow: 1px 3px 4px 0 rgba(0,0,0,0.15);
+}
+#catogaries{
+
+
+    width: 100%;
+}
+#catogaryul{
+
+    list-style: none;
+    text-decoration: none;
+}
+.submenu{
+    display: block;
+    padding: 2%;
+    float: left;
+}
+#slide1{
+    -webkit-box-shadow: 0px 9px 26px 0px rgba(50, 50, 50, 0.68);
+    -moz-box-shadow:    0px 9px 26px 0px rgba(50, 50, 50, 0.68);
+    box-shadow:         0px 9px 26px 0px rgba(50, 50, 50, 0.68);
+    border-radius: 15px;
+}
+#wrapper {
+    min-height:100%;
+    position:relative;
+}
+.center-block {
+    float: none;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.input-group .icon-addon .form-control {
+    border-radius: 0;
+}
+
+.icon-addon {
+    position: relative;
+    color: #555;
+    display: block;
+}
+
+.icon-addon:after,
+.icon-addon:before {
+    display: table;
+    content: " ";
+}
+
+.icon-addon:after {
+    clear: both;
+}
+
+.icon-addon.addon-md .glyphicon,
+.icon-addon .glyphicon, 
+.icon-addon.addon-md .fa,
+.icon-addon .fa {
+    position: absolute;
+    z-index: 2;
+    left: 10px;
+    font-size: 14px;
+    width: 20px;
+    margin-left: -2.5px;
+    text-align: center;
+    padding: 10px 0;
+    top: 1px
+}
+
+.icon-addon.addon-lg .form-control {
+    line-height: 1.33;
+    height: 46px;
+    font-size: 18px;
+    padding: 10px 16px 10px 40px;
+}
+
+.icon-addon.addon-sm .form-control {
+    height: 30px;
+    padding: 5px 10px 5px 28px;
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+.icon-addon.addon-lg .fa,
+.icon-addon.addon-lg .glyphicon {
+    font-size: 18px;
+    margin-left: 0;
+    left: 11px;
+    top: 4px;
+}
+
+.icon-addon.addon-md .form-control,
+.icon-addon .form-control {
+    padding-left: 30px;
+    float: left;
+    font-weight: normal;
+}
+
+.icon-addon.addon-sm .fa,
+.icon-addon.addon-sm .glyphicon {
+    margin-left: 0;
+    font-size: 12px;
+    left: 5px;
+    top: -1px
+}
+
+.icon-addon .form-control:focus + .glyphicon,
+.icon-addon:hover .glyphicon,
+.icon-addon .form-control:focus + .fa,
+.icon-addon:hover .fa {
+    color: #2580db;
+}
+.inoutchooser{
+    cursor: pointer;
+    width: 25%;
+    height: 50px;
+    line-height: 50px;
+    float: left;
+    text-align: center;
+    border: 1px solid #ddd;
+    //background: -webkit-gradient(linear,left top,left bottom,from(#fefefe),to(#f8f8f8));
+    -webkit-border-top-right-radius: 25px;
+    -moz-border-radius-topright: 25px;
+    border-top-right-radius: 25px;
+}
