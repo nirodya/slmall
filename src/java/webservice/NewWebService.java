@@ -8,6 +8,7 @@ package webservice;
 import Controller.CryptWithMD5;
 import Controller.Esender;
 import Controller.LoadProductManager;
+import Controller.SearchProductManagement;
 import DB.Stock;
 import java.util.List;
 import javax.jws.WebService;
@@ -98,16 +99,16 @@ public class NewWebService {
         List<DB.Stock> plist = spm.searchStock("name", null, id);
         double dpercentage = 0.00;
         double roundedpercentage = 0.00;
-        JSONArray ar=new JSONArray();
+        JSONArray ar = new JSONArray();
         for (Stock st : plist) {
             dpercentage = ((st.getSellingPrice() - st.getDiscountPrice()) / st.getSellingPrice()) * 100;
             roundedpercentage = Math.round(dpercentage);
             JSONObject job = new JSONObject();
-            job.put("sid",st.getIdstock());
-            job.put("pname",st.getProductName());
-            job.put("image",st.getImage());
-            job.put("percentage",roundedpercentage);
-            job.put("price",st.getDiscountPrice());
+            job.put("sid", st.getIdstock());
+            job.put("pname", st.getProductName());
+            job.put("image", st.getImage());
+            job.put("percentage", roundedpercentage);
+            job.put("price", st.getDiscountPrice());
             job.put("description", st.getDescription());
             ar.add(job);
         }
@@ -120,9 +121,9 @@ public class NewWebService {
     @WebMethod(operationName = "getCatogaries")
     public String getCatogaries() {
         Controller.SearchProductManagement spm = new Controller.SearchProductManagement();
-        List<DB.Catogaries> l=spm.searchCatogaryAll();
-        JSONArray ar=new JSONArray();
-        l.forEach(e->{
+        List<DB.Catogaries> l = spm.searchCatogaryAll();
+        JSONArray ar = new JSONArray();
+        l.forEach(e -> {
             JSONObject job = new JSONObject();
             job.put("catid", e.getIdcatogaries());
             job.put("cat", e.getCatogariName());
@@ -136,14 +137,40 @@ public class NewWebService {
      */
     @WebMethod(operationName = "getSubCatogaries")
     public String getSubCatogaries(@WebParam(name = "id") int id) {
-        Controller.LoadProductManager loadProductManager=new LoadProductManager();
-        DB.Catogaries c=loadProductManager.loadCatogary(id);
-        List<DB.SubCatogary> catogarys=new Controller.SearchProductManagement().searchSubCatogary(c);
-        JSONArray ar=new JSONArray();
-        catogarys.forEach(e->{
+        Controller.LoadProductManager loadProductManager = new LoadProductManager();
+        DB.Catogaries c = loadProductManager.loadCatogary(id);
+        List<DB.SubCatogary> catogarys = new Controller.SearchProductManagement().searchSubCatogary(c);
+        JSONArray ar = new JSONArray();
+        catogarys.forEach(e -> {
             JSONObject job = new JSONObject();
             job.put("subcatid", e.getIdSubCatogary());
             job.put("subcat", e.getSubCatogaryName());
+            ar.add(job);
+        });
+        return ar.toJSONString();
+    }
+
+    /**
+     * Web service operation
+     */
+    @WebMethod(operationName = "getProductsBySubCat")
+    public String getProductsBySubCat(@WebParam(name = "subCatId") int subCatId, @WebParam(name = "catId") int catId, @WebParam(name = "id") int id) {
+        //TODO write your implementation code here:
+        SearchProductManagement spm = new SearchProductManagement();
+        List<DB.Stock> l = spm.advanceSearchStock(catId, subCatId, null, id);
+        JSONArray ar = new JSONArray();
+        l.forEach(st -> {
+            double dpercentage = 0.00;
+            double roundedpercentage = 0.00;
+            dpercentage = ((st.getSellingPrice() - st.getDiscountPrice()) / st.getSellingPrice()) * 100;
+            roundedpercentage = Math.round(dpercentage);
+            JSONObject job = new JSONObject();
+            job.put("sid", st.getIdstock());
+            job.put("pname", st.getProductName());
+            job.put("image", st.getImage());
+            job.put("percentage", roundedpercentage);
+            job.put("price", st.getDiscountPrice());
+            job.put("description", st.getDescription());
             ar.add(job);
         });
         return ar.toJSONString();
